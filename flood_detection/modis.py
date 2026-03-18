@@ -55,7 +55,7 @@ def dfo(roi, began, ended, threshold, my_comp='3Day', get_max=False):
     # collection so they can be accessed in together in the DFO algorithm.
     modis = ee.ImageCollection(terra_final.merge(aqua_final)\
                                 .sort("system:time_start", True))
-    print "Collected and pre-processed MODIS Images"
+    print("-- Collected and pre-processed MODIS Images")
 
     # STEP 3 - APPLY THE DFO WATER DETECTION & COMPOSITING ALGORITHMS
     # Okay - this is where it starts to get exciting.  The portion of the code
@@ -120,7 +120,7 @@ def dfo(roi, began, ended, threshold, my_comp='3Day', get_max=False):
                        'b7': swir_thresh.getInfo(),
                        'base_res':base_res}
 
-        print "Calculated thresholds for Otsu: {0}".format(thresh_dict)
+        print("-- Calculated thresholds for Otsu: {0}".format(thresh_dict))
 
     else:
         raise ValueError("'threshold' options are 'standard' or 'otsu'")
@@ -309,5 +309,5 @@ def dfo(roi, began, ended, threshold, my_comp='3Day', get_max=False):
     else:
         raise ValueError("'max_img' options are 'True' or 'False'")
 
-    print "DFO Flood Dectection Complete"
+    print("-- DFO Flood Dectection Complete")
     return dfo_final
