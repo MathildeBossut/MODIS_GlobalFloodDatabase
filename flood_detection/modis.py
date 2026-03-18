@@ -13,8 +13,8 @@
 #     3: 'clear_perc': Percent clear views (clear views normalized by number of images)
 
 import ee
-import modis_toolbox
-from utils import misc, otsu
+from . import modis_toolbox
+from .utils import misc, otsu
 
 def dfo(roi, began, ended, threshold, my_comp='3Day', get_max=False):
 
